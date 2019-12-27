@@ -1,0 +1,37 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="SlcMediaPickerTipDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:backgroundDimAmount">0.0</item>
+    </style>
+
+    <style name="SlcMediaPickerAppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="SlcMediaPickerAppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="SlcMediaPickerAppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="SlcMediaPickerAppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="SlcMpShadowAnimDef" parent="Animation.AppCompat.Dialog">
+        <item name="android:windowEnterAnimation">@anim/slc_mp_bottom_shadow_in_def</item>
+        <item name="android:windowExitAnimation">@anim/slc_mp_bottom_shadow_out_def</item>
+    </style>
+
+    <style name="SlcMpShadowAnimNegativeDef" parent="Animation.AppCompat.Dialog">
+        <item name="android:windowEnterAnimation">@anim/slc_mp_top_shadow_in_def</item>
+        <item name="android:windowExitAnimation">@anim/slc_mp_top_shadow_out_def</item>
+    </style>
+
+</resources>

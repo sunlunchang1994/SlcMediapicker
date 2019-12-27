@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@android:color/transparent">
+
+    <FrameLayout
+        android:id="@+id/loading_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <include layout="@layout/slc_mp_on_loading_layout" />
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/error_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <include layout="@layout/slc_mp_on_error_layout" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/control_layout"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_gravity="bottom"
+        android:background="#42000000"
+        android:gravity="center_vertical">
+
+        <ImageButton
+            android:id="@+id/turn_button"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="?attr/actionBarItemBackground"
+            android:src="@drawable/slc_mp_ic_player_play_arrow" />
+
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/has_played"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="00:00"
+                android:textColor="#ffffff" />
+
+            <SeekBar
+                android:id="@+id/seekBar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/duration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="00:00"
+                android:textColor="#ffffff" />
+
+            <ImageButton
+                android:id="@+id/scale_button"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="?attr/actionBarItemBackground"
+                android:src="@drawable/slc_mp_ic_player_fullscreen" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+</FrameLayout>

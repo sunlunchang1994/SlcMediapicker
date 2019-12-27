@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="slc_mp_config_popup_short_dur">200</integer>
+</resources>

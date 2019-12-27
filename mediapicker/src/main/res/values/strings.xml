@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">MediaPicker</string>
+    <string name="slc_m_p_photo">图片</string>
+    <string name="slc_m_p_video">视频</string>
+    <string name="slc_m_p_audio">音频</string>
+    <string name="slc_m_p_file">文件</string>
+    <string name="slc_m_p_media_picker">媒体选择</string>
+    <string name="slc_m_p_select_count">已选择%1$s</string>
+    <string name="slc_m_p_max_count_hint">最多选择%1$s个文件</string>
+    <string name="slc_m_p_all_pictures">全部图片</string>
+    <string name="slc_m_p_preview">预览</string>
+    <string name="slc_m_p_edit">编辑</string>
+    <string name="slc_m_p_complete">完成</string>
+    <string name="slc_m_p_zhang">%1$s张</string>
+    <string name="slc_m_p_bu">%1$s部</string>
+    <string name="slc_m_p_shou">%1$s首</string>
+    <string name="slc_m_p_ge">%1$s个</string>
+    <string name="slc_m_p_x_x">%1$s/%2$s</string>
+    <string name="slc_m_p_this_type_is_not_allowed_this_time">此次不允许选择该类型</string>
+    <string name="slc_m_p_cannot_select_multiple_types_at_the_same_time">不能同时选择多种类型</string>
+    <string name="slc_m_p_please_select_the_image_you_want_to_preview">请选择需要预览的图片</string>
+    <array name="slc_media_type">
+        <item>图片</item>
+        <item>视频</item>
+        <item>音频</item>
+        <item>文件</item>
+    </array>
+</resources>

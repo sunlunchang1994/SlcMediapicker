@@ -1,0 +1,2 @@
+include ':app', ':photoview', ':mediapicker', ':medialoader'
+rootProject.name='SlcMediapicker'
