@@ -7,7 +7,7 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.10.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
     implementation 'jp.wasabeef:glide-transformations:3.3.0'
-    implementation "android.slc:mediapicker:$mpVersion"
+    api "android.slc:mediapicker:$mpVersion"
 }
 publish {
     repoName = 'media'
