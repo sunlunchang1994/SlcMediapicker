@@ -2,7 +2,6 @@ apply from: "${project.rootDir}/app_module_config.gradle"
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    testImplementation 'junit:junit:4.12'
     implementation "androidx.appcompat:appcompat:$androidXAppcompat"
     implementation "com.google.android.material:material:$googleAndroidMaterial"
     implementation "androidx.constraintlayout:constraintlayout:$androidXConstraintlayout"
