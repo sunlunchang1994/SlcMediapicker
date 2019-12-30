@@ -1,2 +1,2 @@
-include ':app', ':photoview', ':mediapicker', ':medialoader'
-rootProject.name='SlcMediapicker'
+include ':app', ':mediapicker', ':medialoader', ':common:photoview', ':mediaglide'
+rootProject.name = 'SlcMediapicker'

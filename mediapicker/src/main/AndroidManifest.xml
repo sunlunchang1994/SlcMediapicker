@@ -1,27 +1,27 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.slc.mp">
+    package="android.slc.mp">
 
     <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
     <application>
         <activity
-            android:name="com.slc.mp.ui.activity.SlcMpActivity"
+            android:name="android.slc.mp.ui.activity.SlcMpActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation|density|fontScale"
             android:theme="@style/SlcMediaPickerAppTheme.NoActionBar" />
         <activity
-            android:name="com.slc.mp.ui.activity.SlcMpBrowsePhotoActivity"
+            android:name="android.slc.mp.ui.activity.SlcMpBrowsePhotoActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation|density|fontScale"
             android:theme="@style/SlcMediaPickerAppTheme.NoActionBar" />
         <activity
-            android:name="com.slc.mp.ui.activity.SlcMpBrowseVideoActivity"
+            android:name="android.slc.mp.ui.activity.SlcMpBrowseVideoActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation|density|fontScale"
             android:theme="@style/SlcMediaPickerAppTheme.NoActionBar" />
         <activity
-            android:name=".ui.activity.SlcMpBridgingActivity"
+            android:name="android.slc.mp.ui.activity.SlcMpBridgingActivity"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation|density|fontScale"
             android:theme="@style/SlcMediaPickerTipDialog" />
 
         <provider
-            android:name="com.slc.mp.SlcMpFileProvider"
+            android:name="android.slc.mp.SlcMpFileProvider"
             android:authorities="${applicationId}.provider"
             android:exported="false"
             android:grantUriPermissions="true">
