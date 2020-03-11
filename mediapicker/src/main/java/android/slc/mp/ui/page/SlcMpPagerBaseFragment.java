@@ -1,35 +1,36 @@
 package android.slc.mp.ui.page;
 
-import androidx.lifecycle.ViewModelProviders;
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import androidx.annotation.IdRes;
-import androidx.annotation.LayoutRes;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.slc.mp.R;
+import android.slc.mp.SlcMp;
+import android.slc.mp.po.i.IBaseFolder;
+import android.slc.mp.po.i.IBaseItem;
+import android.slc.mp.po.i.IBaseResult;
 import android.slc.mp.popup.SlcMpPopup;
+import android.slc.mp.ui.SlcIMpDelegate;
 import android.slc.mp.ui.adapter.SlcMpBaseMpAdapter;
 import android.slc.mp.ui.adapter.SlcMpFolderAdapter;
 import android.slc.mp.ui.adapter.base.SlcMpBaseAdapter;
+import android.slc.mp.ui.vm.SlcMpPageViewModel;
 import android.slc.mp.ui.widget.SlcMpMaxHeightRecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 
-import android.slc.mp.SlcMp;
-import android.slc.mp.po.i.IBaseFolder;
-import android.slc.mp.po.i.IBaseItem;
-import android.slc.mp.po.i.IBaseResult;
-import android.slc.mp.ui.SlcIMpDelegate;
-import android.slc.mp.ui.vm.SlcMpPageViewModel;
+import androidx.annotation.IdRes;
+import androidx.annotation.LayoutRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
@@ -41,6 +42,7 @@ public abstract class SlcMpPagerBaseFragment<S extends IBaseResult<F, T>, F exte
         SlcIMpFragmentView<S, F, T>, SlcIMpPagerDelegate.OnResultListener<List<T>>, View.OnClickListener,
         SlcMpBaseAdapter.OnItemClickListener, SlcMpBaseAdapter.OnItemChildClickListener {
     public final static String POSITION = "position";
+    private FragmentActivity _Activity;
     private View mContentView;
     protected SlcIMpPagerDelegate<S, F, T> mMediaPickerListDelegate;
     protected RecyclerView mediaPickerRecyclerView;
@@ -91,6 +93,16 @@ public abstract class SlcMpPagerBaseFragment<S extends IBaseResult<F, T>, F exte
     }
 
     @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        if(context instanceof FragmentActivity){
+            _Activity = (FragmentActivity) context;
+        }else{
+            throw new RuntimeException(context.getClass().getSimpleName() + " must impl FragmentActivity!");
+        }
+    }
+
+    @Override
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
@@ -105,7 +117,8 @@ public abstract class SlcMpPagerBaseFragment<S extends IBaseResult<F, T>, F exte
         if (getArguments() != null) {
             int index = getArguments().getInt(POSITION, 0);
             if (index > 0) {
-                SlcMpPageViewModel slcMpPageViewModel = ViewModelProviders.of(this).get(SlcMpPageViewModel.class);
+                SlcMpPageViewModel slcMpPageViewModel = new ViewModelProvider(this,
+                        ViewModelProvider.AndroidViewModelFactory.getInstance(_Activity.getApplication())).get(SlcMpPageViewModel.class);
                 slcMpPageViewModel.setIndex(index);
             }
         }
@@ -169,7 +182,7 @@ public abstract class SlcMpPagerBaseFragment<S extends IBaseResult<F, T>, F exte
             CheckBox checkBox = (CheckBox) view;
             checkBox.setChecked(!checkBox.isClickable());
             mMediaPickerListDelegate.selectItem(position);
-        }else{
+        } else {
             mMediaPickerListDelegate.onItemChildClick(position);
         }
     }

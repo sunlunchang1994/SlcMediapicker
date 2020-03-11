@@ -1,23 +1,27 @@
 apply from: "${project.rootDir}/app_module_config.gradle"
-
+if (module_mediapicker.toBoolean()) {
+    apply plugin: 'maven'
+    apply plugin: 'com.novoda.bintray-release'
+}
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "androidx.appcompat:appcompat:$androidXAppcompat"
     implementation "com.google.android.material:material:$googleAndroidMaterial"
     implementation "androidx.constraintlayout:constraintlayout:$androidXConstraintlayout"
     implementation "androidx.recyclerview:recyclerview:$recyclerview"
-    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycleExtensions"
+    //implementation "androidx.lifecycle:lifecycle-extensions:$lifecycleExtensions"
     implementation 'com.github.chrisbanes:PhotoView:2.3.0'
-    api "android.slc:medialoader:$mpVersion"
+    api "android.slc:medialoader:$mpMedialoader"
     //api project(':medialoader')
 }
-
-publish {
-    repoName = 'media'
-    userOrg = "sunlunchang"
-    groupId = 'android.slc'
-    artifactId = 'mediapicker'
-    publishVersion = "$publishVersion"
-    desc = 'Develop Android apps quickly'
-    website = "https://github.com/sunlunchang1994/$rootProject.name"
+if (module_mediapicker.toBoolean()) {
+    publish {
+        repoName = 'media'
+        userOrg = "sunlunchang"
+        groupId = 'android.slc'
+        artifactId = 'mediapicker'
+        publishVersion = "$mpMediapickerPublish"
+        desc = 'Develop Android apps quickly'
+        website = "https://github.com/sunlunchang1994/$rootProject.name"
+    }
 }

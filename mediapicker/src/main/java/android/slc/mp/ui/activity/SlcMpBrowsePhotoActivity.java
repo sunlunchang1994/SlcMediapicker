@@ -14,13 +14,13 @@ import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.slc.mp.R;
 import android.slc.mp.utils.SlcMpMediaBrowseUtils;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 
-import com.slc.mp.R;
 import android.slc.mp.SlcMp;
 import android.slc.mp.SlcMpConfig;
 import android.slc.mp.po.i.IPhotoItem;

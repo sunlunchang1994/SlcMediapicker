@@ -1,16 +1,20 @@
 apply from: "${project.rootDir}/app_module_config.gradle"
-
+if (module_medialoader.toBoolean()) {
+    apply plugin: 'maven'
+    apply plugin: 'com.novoda.bintray-release'
+}
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "androidx.appcompat:appcompat:$androidXAppcompat"
 }
-
-publish {
-    repoName = 'media'
-    userOrg = "sunlunchang"
-    groupId = 'android.slc'
-    artifactId = 'medialoader'
-    publishVersion = "$publishVersion"
-    desc = 'Develop Android apps quickly'
-    website = "https://github.com/sunlunchang1994/$rootProject.name"
+if (module_medialoader.toBoolean()) {
+    publish {
+        repoName = 'media'
+        userOrg = "sunlunchang"
+        groupId = 'android.slc'
+        artifactId = 'medialoader'
+        publishVersion = "$mpMedialoaderPublish"
+        desc = 'Develop Android apps quickly'
+        website = "https://github.com/sunlunchang1994/$rootProject.name"
+    }
 }
